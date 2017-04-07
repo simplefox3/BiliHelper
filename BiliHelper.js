@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name        bilibili HTML5播放器
+// @name        bilibili 自动网页全屏
 // @author      nanavao
 // @namespace   nana_vao_script
-// @description 启用bilibili的html5播放器，自动宽屏、原生右键菜单
-// @version     1.23
+// @description bili 自动网页全屏
+// @version     1.0
 // @include     http://www.bilibili.com/video/av*
 // @include     http://bangumi.bilibili.com/anime/v/*
 // @run-at      document-start
