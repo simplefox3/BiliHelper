@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        bilibili 自动网页全屏
-// @author      imbedinlove
-// @namespace   imbedinlove_script
+// @author      50061-imbedinlove
+// @namespace   50061-imbedinlove
 // @description bili 自动网页全屏
 // @version     1.0
 // @include     http://www.bilibili.com/video/av*
