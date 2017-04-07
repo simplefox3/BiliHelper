@@ -32,6 +32,7 @@
         window.addEventListener('load', function () {
             this.$ = unsafeWindow.jQuery;
             $('.bilibili-player-iconfont-web-fullscreen').click();
+
             scrollToPlayer();
             let intervalId  = setInterval(function(){
                 if($('.bilibili-player-video-wrap video').length){
