@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        bilibili 自动网页全屏
-// @author      50061-imbedinlove
+// @author      imbedinlove
 // @namespace   50061-imbedinlove
 // @description bili 自动网页全屏
 // @version     1.0
