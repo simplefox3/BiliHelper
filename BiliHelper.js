@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        bilibili 自动网页全屏
-// @author      nanavao
-// @namespace   nana_vao_script
+// @author      imbedinlove
+// @namespace   imbedinlove
 // @description bili 自动网页全屏
 // @version     1.24
 // @include     http://www.bilibili.com/video/av*
