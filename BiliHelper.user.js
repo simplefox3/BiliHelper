@@ -1,17 +1,19 @@
 // ==UserScript==
-// @name        bilibili 自动网页全屏
-// @author      imbedinlove
-// @namespace   imbedinlove
-// @description bili 自动网页全屏
-// @version     1.24
+// @name        bilibili HTML5播放器
+// @author      nanavao
+// @namespace   nana_vao_script
+// @description 启用bilibili的html5播放器，自动宽屏、原生右键菜单
+// @version     1.25
 // @include     http://www.bilibili.com/video/av*
+// @include     https://www.bilibili.com/video/av*
 // @include     http://bangumi.bilibili.com/anime/v/*
+// @include     https://bangumi.bilibili.com/anime/v/*
 // @run-at      document-start
 // @grant       GM_setValue
 // @grant       GM_getValue
 // @grant       GM_deleteValue
 // ==/UserScript==
-'use strict';
+
 (function () {
     let url = GM_getValue('url');
     GM_deleteValue('url');
@@ -31,7 +33,9 @@
         }catch(e){}
         window.addEventListener('load', function () {
             this.$ = unsafeWindow.jQuery;
-            $('.bilibili-player-iconfont-web-fullscreen').click();
+            waitElement(function() {
+                document.getElementsByClassName("bilibili-player-iconfont-web-fullscreen")[0].click();
+            }, ".bilibili-player-iconfont-web-fullscreen");
             scrollToPlayer();
             let intervalId  = setInterval(function(){
                 if($('.bilibili-player-video-wrap video').length){
@@ -40,6 +44,31 @@
                 }
             },500);
         });
+    }
+
+    function waitElement(func,selector, times, interval) {
+        this.$ = unsafeWindow.jQuery;
+        var _times = times || -1, //100次
+            _interval = interval || 20, //20毫秒每次
+            _self = this,
+            _selector = selector, //选择器
+            _iIntervalID; //定时器id
+        if( this.length ){ //如果已经获取到了，就直接执行函数
+            func && func.call(this);
+        } else {
+            _iIntervalID = setInterval(function() {
+                if(!_times) { //是0就退出
+                    clearInterval(_iIntervalID);
+                }
+                _times <= 0 || _times--; //如果是正数就 --
+                _self = $(_selector); //再次选择
+                if( _self.length ) { //判断是否取到
+                    func && func.call(_self);
+                    clearInterval(_iIntervalID);
+                }
+            }, _interval);
+        }
+        return this;
     }
     
     function scrollToPlayer(){
@@ -77,3 +106,4 @@
         contextMenuEvent.handler = exportFunction(newHandler,contextMenuEvent);
     }
 }) ();
+
