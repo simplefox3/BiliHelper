@@ -3,9 +3,10 @@
 // @author      imbedinlove
 // @namespace   imbedinlove
 // @description bili 自动网页全屏
-// @version     1.24
+// @version     1.25
 // @include     http://www.bilibili.com/video/av*
 // @include     http://bangumi.bilibili.com/anime/v/*
+// @include     http://live.bilibili.com/*
 // @run-at      document-start
 // @grant       GM_setValue
 // @grant       GM_getValue
